@@ -116,6 +116,9 @@ public class Manager {
             if (!(oldTask.getName().equals(task.getName()))) {
                 oldTask.setName(task.getName());
             }
+            if (!oldTask.getStatus().equals(task.getStatus())) {
+                oldTask.setStatus(task.getStatus());
+            }
             return oldTask;
         }
     }
@@ -131,6 +134,9 @@ public class Manager {
             if (!(oldEpic.getName().equals(epic.getName()))) {
                 oldEpic.setDescription((epic.getName()));
             }
+            if (!oldEpic.getStatus().equals(epic.getStatus())) {
+                oldEpic.setStatus(epic.getStatus());
+            }
             return oldEpic;
         }
     }
@@ -145,6 +151,9 @@ public class Manager {
             }
             if (!(oldSubTask.getDescription().equals(subTask.getDescription()))) {
                 oldSubTask.setDescription(subTask.getDescription());
+            }
+            if (!oldSubTask.getStatus().equals(subTask.getStatus())) {
+                oldSubTask.setStatus(subTask.getStatus());
             }
             return oldSubTask;
         }
