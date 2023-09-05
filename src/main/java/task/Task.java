@@ -4,13 +4,13 @@ public class Task {
     private long id;
     private String name;
     private String description;
-    private String status;
+    private Status status;
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

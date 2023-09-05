@@ -1,6 +1,7 @@
 package manager;
 
 import task.Epic;
+import task.Status;
 import task.SubTask;
 import task.Task;
 
@@ -157,5 +158,36 @@ public class Manager {
             }
             return oldSubTask;
         }
+    }
+
+    public void updateStatusEpic(Epic epic) {
+        List<SubTask> subTaskList = getAllSubTaskForEpic(epic.getId());
+        if (subTaskList.isEmpty()) {
+            epic.setStatus(Status.NEW);
+            return;
+        } else {
+            for (int i = 0; i < subTaskList.size(); i++) {
+                SubTask subTask = subTaskList.get(i);
+                if (!subTask.getStatus().equals(Status.DONE)) {
+                    break;
+                }
+                if (i == subTaskList.size() - 1) {
+                    epic.setStatus(Status.DONE);
+                    return;
+                }
+            }
+            for (int i = 0; i < subTaskList.size(); i++) {
+                SubTask subTask = subTaskList.get(i);
+                if (!subTask.getStatus().equals(Status.NEW)) {
+                    break;
+                }
+                if (i == subTaskList.size()-1) {
+                    epic.setStatus(Status.NEW);
+                    return;
+                }
+            }
+            epic.setStatus(Status.IN_PROGRESS);
+        }
+
     }
 }
