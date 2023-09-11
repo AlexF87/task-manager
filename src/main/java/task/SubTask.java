@@ -1,5 +1,9 @@
 package task;
 
 public class SubTask extends Task{
-    private int idEpic;
+    private long idEpic;
+
+    public long getIdEpic() {
+        return idEpic;
+    }
 }

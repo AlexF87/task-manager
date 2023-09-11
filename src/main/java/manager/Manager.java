@@ -52,6 +52,7 @@ public class Manager {
         for (SubTask subTask : subTaskList) {
             tasks.remove(subTask.getId());
         }
+        updateStatusEpic(epic);
     }
 
     public void deleteAllEpic() {
@@ -155,6 +156,7 @@ public class Manager {
             }
             if (!oldSubTask.getStatus().equals(subTask.getStatus())) {
                 oldSubTask.setStatus(subTask.getStatus());
+                updateStatusEpic((Epic)tasks.get(subTask.getIdEpic()));
             }
             return oldSubTask;
         }
